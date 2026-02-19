@@ -73,7 +73,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import AllDoctors from "./pages/AllDoctors";
-import HospitalToken from "./pages/hospitaltoken";
+import HospitalToken from "./pages/HospitalToken";
+
 
 function App() {
   return (
