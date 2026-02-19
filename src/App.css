@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +39,84 @@
 
 .read-the-docs {
   color: #888;
+} */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #3a3535;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 40px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ddd;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #5b6cff;
+}
+
+.menu a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.menu a.active {
+  color: #5b6cff;
+  border-bottom: 2px solid #5b6cff;
+  padding-bottom: 4px;
+}
+
+.btn {
+  background: #5b6cff;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Layout */
+.container {
+  margin-top: 120px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Token Box */
+.box {
+  width: 400px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px gray;
+}
+
+input,
+button {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+}
+
+button {
+  background: #8e5b35;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #6f8f6f;
 }
