@@ -66,7 +66,6 @@
 
 // export default App
 
-import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -75,16 +74,15 @@ import Contact from "./pages/Contact";
 import AllDoctors from "./pages/AllDoctors";
 import HospitalToken from "./pages/HospitalToken";
 
-
 function App() {
   return (
     <BrowserRouter>
-      <nav>
-        <Link to="/">Home</Link>{" | "}
-        <Link to="/about">About</Link>{" | "}
-        <Link to="/contact">Contact</Link>{" | "}
-        <Link to="/doctors">All Doctors</Link>{" | "}
-        <Link to="/token">Token</Link>
+      <nav style={{ padding: "10px", background: "#eee" }}>
+        <Link to="/">Home</Link> |{" "}
+        <Link to="/about">About</Link> |{" "}
+        <Link to="/contact">Contact</Link> |{" "}
+        <Link to="/doctors">All Doctors</Link> |{" "}
+        <Link to="/token">Token</Link> 
       </nav>
 
       <Routes>
@@ -99,6 +97,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
