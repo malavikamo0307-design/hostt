@@ -343,6 +343,12 @@ li {
 .clear-btn:hover {
     background: darkred;
 }
+select {
+    width: 50%;
+    padding: 5px;
+    margin: 1px 0;
+    border-radius: 5px;
+}
 
 
 
@@ -363,23 +369,10 @@ li {
 </div>
 
  <div class="box">
-  <img src="ai medical.jpg" alt="hospital" width="400" height="200">
+  <img src="ai medical.jpg" alt="hospital" width="400" height="250">
 </div>
 
 
-<!-- <div class="main">
-    <div class="box">
-        <h2>Hospital Token System</h2>
-
-        <input type="text" id="name" placeholder="Patient Name">
-
-        <button onclick="addPatient()">Register</button>
-        <button onclick="nextPatient()">Next Patient</button>
-
-        <h3>Waiting List:</h3>
-        <ul id="list"></ul>
-    </div>
-</div> -->
 
 <div class="box">
     <h2>Hospital Token System</h2>
@@ -406,6 +399,15 @@ li {
     <h3>Waiting List:</h3>
     <ul id="list"></ul>
 </div>
+
+<h3>Doctors Available</h3>
+
+<select id="doctor">
+    <option value="">-- Select Doctor --</option>
+    <option value="Dr. Kumar">Dr. Kumar (9 AM – 1 PM)</option>
+    <option value="Dr. Meera">Dr. Meera (2 PM – 6 PM)</option>
+    <option value="Dr. Raj">Dr. Raj (6 PM – 10 PM)</option>
+</select>
 
     
 
@@ -480,6 +482,8 @@ function updateDateTime() {
 
 setInterval(updateDateTime, 1000);
 updateDateTime();
+
+
 </script>
 
 </body>
