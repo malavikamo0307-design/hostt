@@ -355,7 +355,10 @@ select {
 </style>
 </head>
 
+
 <body>
+
+    
 
 <!-- NAVBAR -->
 <div class="navbar">
@@ -400,18 +403,58 @@ select {
     <ul id="list"></ul>
 </div>
 
-<h3>Doctors Available</h3>
+<h3>Doctors Available  time and days</h3>
 
 <select id="doctor">
-    <option value="">-- Select Doctor --</option>
-    <option value="Dr. Kumar">Dr. Kumar (9 AM – 1 PM)</option>
-    <option value="Dr. Meera">Dr. Meera (2 PM – 6 PM)</option>
-    <option value="Dr. Raj">Dr. Raj (6 PM – 10 PM)</option>
+  <option value="">-- Select Doctor --</option>
 </select>
+<script>
+const doctors = [
+  {
+    name: "Dr. Kumar",
+    time: "9 AM – 1 PM",
+    days: ["Monday", "Wednesday", "Friday"]
+  },
+  {
+    name: "Dr. Meera",
+    time: "2 PM – 6 PM",
+    days: ["Tuesday", "Thursday"]
+  },
+  {
+    name: "Dr. Raj",
+    time: "6 PM – 10 PM",
+    days: ["Saturday"]
+  }
+];
 
-    
+// Load doctors when page loads
+window.onload = loadDoctors;
+
+function loadDoctors() {
+  const doctorSelect = document.getElementById("doctor");
+  doctorSelect.innerHTML = '<option value="">-- Select Doctor --</option>';
+
+  doctors.forEach(doc => {
+    const option = document.createElement("option");
+    option.value = doc.name;
+    option.text =
+      `${doc.name} – ${doc.time} (${doc.days.join(", ")})`;
+    doctorSelect.appendChild(option);
+  });
+}
+</script>
+
+
+<!-- <h3>Doctors Availability</h3> -->
+
+
+<br><br>
+
+
 
 <script>
+
+    
 let queue = [];
 
 function addPatient() {
