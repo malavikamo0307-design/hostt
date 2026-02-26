@@ -383,7 +383,7 @@ select {
     <div class="info-bar">
         <div id="dateTime"></div>
         <div class="counter">Total Waiting: <span id="count">0</span></div>
-        <input type="text" id="name" placeholder="Patient Name">
+        <input type="text" id="name" placeholder="Patient Name">   
 
     <button onclick="addPatient()">Register</button>
     <button onclick="nextPatient()">Next Patient</button>
@@ -403,52 +403,83 @@ select {
     <ul id="list"></ul>
 </div>
 
-<h3>Doctors Available  time and days</h3>
+<h3>Doctors Available Now</h3>
+<div id="doctorList"></div>
+<p id="noDoctor" style="color:red;"></p>
 
-<select id="doctor">
-  <option value="">-- Select Doctor --</option>
-</select>
+<!-- <select id="doctor">
+  <option value="">-- Select Doctor --</option> -->
+<!-- </select> -->
 <script>
 const doctors = [
-  {
-    name: "Dr. Kumar",
-    time: "9 AM – 1 PM",
-    days: ["Monday", "Wednesday", "Friday"]
-  },
-  {
-    name: "Dr. Meera",
-    time: "2 PM – 6 PM",
-    days: ["Tuesday", "Thursday"]
-  },
-  {
-    name: "Dr. Raj",
-    time: "6 PM – 10 PM",
-    days: ["Saturday"]
-  }
+  { name: "Dr. Kumar", start: 9, end: 13 },
+  { name: "Dr. Meera", start: 14, end: 18 },
+  { name: "Dr. Raj", start: 18, end: 22 },
+  { name: "Dr. Anil", start: 8, end: 12 },
+  { name: "Dr. Priya", start: 16, end: 20 }
 ];
-
-// Load doctors when page loads
 window.onload = loadDoctors;
-
 function loadDoctors() {
-  const doctorSelect = document.getElementById("doctor");
-  doctorSelect.innerHTML = '<option value="">-- Select Doctor --</option>';
+  const doctorList = document.getElementById("doctorList");
+  const noDoctor = document.getElementById("noDoctor");
+
+  doctorList.innerHTML = "";
+  noDoctor.innerText = "";
+
+  const now = new Date();
+  const currentHour = now.getHours();
+
+  let availableFound = false;
 
   doctors.forEach(doc => {
-    const option = document.createElement("option");
-    option.value = doc.name;
-    option.text =
-      `${doc.name} – ${doc.time} (${doc.days.join(", ")})`;
-    doctorSelect.appendChild(option);
+    if (currentHour >= doc.start && currentHour < doc.end) {
+
+      availableFound = true;
+
+      const div = document.createElement("div");
+      div.style.border = "1px solid #ccc";
+      div.style.padding = "10px";
+      div.style.margin = "5px";
+      div.style.background = "#e8f5e9";
+
+      div.innerHTML = `
+        <strong>${doc.name}</strong><br>
+        Time: ${doc.start}:00 - ${doc.end}:00<br>
+        Status: Available
+      `;
+
+      doctorList.appendChild(div);
+    }
   });
+
+  if (!availableFound) {
+    noDoctor.innerText = "No doctors available at this time";
+  }
 }
-</script>
+
+window.onload = loadDoctors;
+setInterval(loadDoctors, 60000);
 
 
-<!-- <h3>Doctors Availability</h3> -->
+// function loadDoctors() {
+//   const doctorSelect = document.getElementById("doctor");
+//   doctorSelect.innerHTML = '<option value="">-- Select Doctor --</option>';
+
+//   doctors.forEach(doc => {
+//     const option = document.createElement("option");
+//     option.value = doc.name;
+//     option.text =
+//       `${doc.name} – ${doc.time} (${doc.days.join(", ")})`;
+//     doctorSelect.appendChild(option);
+//   });
+// }
+// </script>
 
 
-<br><br>
+ <!-- <h3>Doctors Availability</h3> -->
+
+
+ <br><br>
 
 
 
@@ -531,3 +562,5 @@ updateDateTime();
 
 </body>
 </html>
+
+
